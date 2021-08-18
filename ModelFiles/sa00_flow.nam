@@ -1,0 +1,15 @@
+LIST 6 sa00_flow.out
+BAS  1 sa00_flow.bas
+BCF 11 sa00_flow.bcf
+WEL 16 sa00_flow.wel
+DRN 12 sa00_flow.drn
+RCH 13 sa00_flow.rch
+OC  22 sa00_flow.oc
+HFB  17 sa00_flow.hfb
+WL5 21 sa00_flow.wl5
+PG5 19 sa00_flow.pg5
+ATO 18 sa00_flow.ato
+DATA(BINARY) 155 sa00_flow.cw5
+DATA(BINARY) 50 sa00_flow.cbb
+DATA(BINARY) 30 sa00_flow.hds
+DATA(BINARY) 31 sa00_flow.ddn
