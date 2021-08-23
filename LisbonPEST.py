@@ -14,7 +14,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 #Load Model Dir
-model_ws = os.path.join(os.path.dirname(os.path.realpath("ModelFiles_2")), "ModelFiles_2")
+model_ws = os.path.join(os.path.dirname(os.path.realpath("ModelFiles_2")), "Lisbon-Sensitivity-Analysis", "ModelFiles_2")
 #os.listdir(model_ws)
 m_name = "sa00_U"
 #Load Model
@@ -90,15 +90,19 @@ ParamsforLayer = [[] for _ in range(12)]
 # for i in range(11):
 #     ParamsforLayer[i].append(lines[layer_index[i]:layer_index[i + 1]])
 
-paramsonLayers
-
 Param_Layers = {}
+for i in range(len(param_index)):
+    if len(lines[param_index[i]]) == 10:
+        Param_Layers[i] = lines[param_index[i]-1 : param_index[i+1]+1]
+    else:
 
-param1_layer1 = lines[param_index[0]:param_index[1]]
-param1_layer2 = lines[param_index[1]+1 : param_index[2]]
-for i np.arange(param_inde
 
-for i in range()
+
+param1_layer1 = lines[param_index[0]+1 : param_index[1]]
+param2_layer1 = lines[param_index[1]+1 : param_index[2]]
+param3_layer1 = lines[param_index[2]+1 : param_index[3]]
+param4_layer1 = lines[param_index[3]+1 : param_index[4]]
+
 
 
 
@@ -133,11 +137,11 @@ for line in btn_template:
     columns = line.split()
     if not len(columns) in [9, 10]:
         continue
-    if len(columns) == 10:
-        btn_dict.append(columns)
-    else:
-        columns = list(np.append(columns, np.repeat(np.nan, 1)))
-        btn_dict.append(columns)
+        if len(columns) == 10:
+            btn_dict.append(columns)
+        else:
+            columns = list(np.append(columns, np.repeat(np.nan, 1)))
+            btn_dict.append(columns)
 btn_dict = btn_dict[2:]
 
 btn_dict_merged = []
@@ -187,12 +191,13 @@ count = 0
 for line in lines:
     if len(line.split()) == 6:
         new_line = " ".join([line.split()[0].rjust(10), line.split()[1].rjust(10), line.split()[2].rjust(10),
-                            line.split()[3].rjust(10), '#WlPumpRate'.rjust(10), line.split()[5].rjust(10)])
+                            line.split()[3].rjust(10), '#Q_CAP_{}'.format(line.split()[0]).rjust(10),
+                             line.split()[5].rjust(10)])
         new_lines[count] = new_line
     count += 1
 
 
-with open(os.path.join(model_ws + os.sep + m_name + ".wel.tpl"), 'w') as f:
+with open(os.path.join(model_ws + os.sep + m_name + ".wl5.tpl"), 'w') as f:
     for item in new_lines:
         if '\n' in item:
             f.write("%s" % item)
