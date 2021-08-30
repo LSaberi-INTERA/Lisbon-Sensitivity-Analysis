@@ -3,6 +3,16 @@
 def extract_results():
 	"""extract the simulation results for locations of interest for all simulation times
 	for each identified binary output file
+
+	Note:
+		This function is designed to be called during the model forward run process
+		from within the directory where the model is being run.  That means the
+		point info csv files will need to be in that directory also.
+
+		This function can be called like "python extract.py" from the command line/
+		batch file or can be called in a python script by first adding "import extract" to the
+		script and then calling "extract.extract_results()"
+
 	"""
 
 	import os
