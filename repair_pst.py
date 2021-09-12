@@ -24,4 +24,4 @@ for out_file in [f for f in os.listdir(new_d) if f.endswith("_processed.csv")]:
 	pyemu.pst_utils.csv_to_ins_file(os.path.join(new_d,out_file),prefix=prefix,longnames=True)
 	pst.add_observations(os.path.join(new_d,out_file+".ins"))
 
-pst.write(os.path.join(new_d,"repaired.pst"))
+pst.write(os.path.join(new_d,"repaired.pst"),version=2)
