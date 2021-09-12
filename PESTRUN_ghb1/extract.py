@@ -21,7 +21,7 @@ def extract_results():
 
 
 	# the results files to process - the extension is important!
-	results_files = ["sa00_U.con", "sa00_U.hds", "sa00_flow.hds"]
+	results_files = ["sa00_U.con"]#, "sa00_U.hds", "sa00_flow.hds"]
 
 	# the csv files of point locations of interest.
 	pts_files = ["sa00_TransportModel_conctargets.csv", "sa00_TransportModel_headtargets.csv",
@@ -54,6 +54,7 @@ def extract_results():
 	df.index = df.apply(lambda x: "name:{0}_k:{1}_j:{2}_k:{3}".format(x.site_name.lower(),x.k,x.i,x.j),axis=1)
 	df.index.name = "site_name"
 
+	thres = 0.85
 	# now process each results file
 	for results_file in results_files:
 		# here is where the extension matters:
@@ -75,6 +76,12 @@ def extract_results():
 		# concat all the output time dfs into one df and save
 		df_kper = pd.concat(dfs,axis=1)
 		df_kper.to_csv(results_file.lower()+"_processed.csv")
+
+		if results_file.lower().endswith("con"):
+			print(hds.get_times())
+
+	
+
 
 
 if __name__ == "__main__":
