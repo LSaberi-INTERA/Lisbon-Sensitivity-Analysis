@@ -1,0 +1,14 @@
+pest_file,model_file
+sa00_flow.bcf.tpl,sa00_flow.bcf
+sa00_flow.drn.tpl,sa00_flow.drn
+sa00_flow.hfb.tpl,sa00_flow.hfb
+sa00_flow.rch.tpl,sa00_flow.rch
+sa00_flow.wel.tpl,sa00_flow.wel
+sa00_flow.wl5.tpl,sa00_flow.wl5
+sa00_U.bcf.tpl,sa00_U.bcf
+sa00_U.drn.tpl,sa00_U.drn
+sa00_U.hfb.tpl,sa00_U.hfb
+sa00_U.rch.tpl,sa00_U.rch
+sa00_U.wel.tpl,sa00_U.wel
+sa00_U.wl5.tpl,sa00_U.wl5
+sa00_U.btn.tpl,sa00_U.btn
